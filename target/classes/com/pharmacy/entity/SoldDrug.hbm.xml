@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019, 10:30:20 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.pharmacy.entity.SoldDrug" table="sold_drugs">
+        <id name="id" type="int">
+            <column name="sold_drugs_id" />
+            <generator class="assigned" />
+        </id>
+        <!-- <property name="stockId" type="int">
+            <column name="stock_id" />
+        </property>
+        <property name="productsId" type="int">
+            <column name="products_id" />
+        </property>-->
+        <property name="date" type="java.util.Date">
+            <column name="date" />
+        </property>
+        <many-to-one name="stock" class="com.pharmacy.entity.Stock" fetch="join" lazy="false">
+            <column name="stock_id" />
+        </many-to-one>
+        <many-to-one name="product" class="com.pharmacy.entity.Product" fetch="join" lazy="false">
+            <column name="products_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

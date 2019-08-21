@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019, 10:30:20 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.pharmacy.entity.User" table="users">
+        <id name="id" type="int">
+            <column name="user_id" />
+            <generator class="assigned" />
+        </id>
+        <!-- 
+        <property name="personId" type="int">
+            <column name="person_id" />
+        </property>
+        <property name="roleId" type="int">
+            <column name="role_id" />
+        </property>
+        <property name="pharmacyId" type="int">
+            <column name="pharmacy_id" />
+        </property>
+         -->
+        <property name="login" type="java.lang.String">
+            <column name="login" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" />
+        </property>
+        <many-to-one name="person" class="com.pharmacy.entity.Person" fetch="join" lazy="false">
+            <column name="person_id" />
+        </many-to-one>
+        <many-to-one name="role" class="com.pharmacy.entity.Role" fetch="join" lazy="false">
+            <column name="role_id" />
+        </many-to-one>
+        <many-to-one name="pharmacy" class="com.pharmacy.entity.Pharmacy" fetch="join" lazy="false">
+            <column name="pharmacy_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

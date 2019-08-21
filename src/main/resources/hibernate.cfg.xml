@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">123</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Pharmacy_dbd?serverTimezone=UTC</property>
+		<property name="hibernate.connection.username">java-dev</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.hbm2ddl.auto">none</property>
+		<property name="show_sql">true</property>
+		<!--  <property name="hibernate.current_session_context_class">thread</property>-->
+		<mapping package="com.pharmacy.entity"/>
+		
+		<mapping class="com.pharmacy.entity.Region"/>
+		<mapping class="com.pharmacy.entity.District"/>
+		<mapping class="com.pharmacy.entity.Locality"/>
+		<mapping class="com.pharmacy.entity.Drug"/>
+		<mapping class="com.pharmacy.entity.ReleaseForm"/>
+		<mapping class="com.pharmacy.entity.Person"/>
+		<mapping class="com.pharmacy.entity.Pharmacy"/>
+		<mapping class="com.pharmacy.entity.Product"/>
+		<mapping class="com.pharmacy.entity.Provider"/>
+		<mapping class="com.pharmacy.entity.Role"/>
+		<mapping class="com.pharmacy.entity.SoldDrug"/>
+		<mapping class="com.pharmacy.entity.Stock"/>
+		<mapping class="com.pharmacy.entity.User"/>
+		
+		
+	</session-factory>
+</hibernate-configuration>

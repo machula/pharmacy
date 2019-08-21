@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019, 10:30:20 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.pharmacy.entity.Pharmacy" table="pharmacy">
+        <id name="id" type="int">
+            <column name="pharmacy_id" />
+            <generator class="assigned" />
+        </id>
+       <!-- 
+        <property name="regionId" type="int">
+            <column name="region_id" />
+        </property>
+        <property name="districtId" type="int">
+            <column name="district_id" />
+        </property>
+        <property name="localityId" type="int">
+            <column name="locality_id" />
+        </property>
+         -->
+        <property name="street" type="java.lang.String">
+            <column name="street" />
+        </property>
+        <!-- 
+        <property name="stockId" type="int">
+            <column name="stock_id" />
+        </property>
+         -->
+        <many-to-one name="region" class="com.pharmacy.entity.Region" fetch="join" lazy="false">
+            <column name="region_id" />
+        </many-to-one>
+        <many-to-one name="district" class="com.pharmacy.entity.District" fetch="join" lazy="false">
+            <column name="district_id" />
+        </many-to-one>
+        <many-to-one name="locality" class="com.pharmacy.entity.Locality" fetch="join" lazy="false">
+            <column name="locality_id" />
+        </many-to-one>
+        <many-to-one name="stock" class="com.pharmacy.entity.Stock" fetch="join" lazy="false">
+            <column name="stock_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

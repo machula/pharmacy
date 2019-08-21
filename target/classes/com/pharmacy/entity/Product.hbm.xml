@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019, 10:30:20 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.pharmacy.entity.Product" table="products">
+        <id name="id" type="int">
+            <column name="products_id" />
+            <generator class="assigned" />
+        </id>
+       <!--   <property name="stockId" type="int">
+            <column name="stock_id" /> 
+        </property>
+        <property name="drugId" type="int">
+            <column name="drug_id" />
+        </property>-->
+        <property name="series" type="int">
+            <column name="series" />
+        </property>
+        <property name="party" type="int">
+            <column name="party" />
+        </property>
+        <property name="quantity" type="int">
+            <column name="quantity" />
+        </property>
+        <!-- 
+        <property name="providerId" type="int">
+            <column name="provider_id" />
+        </property>
+         -->
+        <property name="shelfLife" type="java.util.Date">
+            <column name="shelf_life" />
+        </property>
+        <many-to-one name="stock" class="com.pharmacy.entity.Stock" fetch="join" lazy="false"> 
+            <column name="stock_id" />
+        </many-to-one>
+        <many-to-one name="drug" class="com.pharmacy.entity.Drug" fetch="join" lazy="false">
+            <column name="drug_id" />
+        </many-to-one>
+        <many-to-one name="provider" class="com.pharmacy.entity.Provider" fetch="join" lazy="false">
+            <column name="provider_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 31, 2019, 10:38:30 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.pharmacy.entity.Drug" table="drug">
+        <id name="id" type="int">
+            <column name="drug_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="composition" type="java.lang.String">
+            <column name="composition" />
+        </property>
+        <many-to-one name="releaseForm" class="com.pharmacy.entity.ReleaseForm" fetch="join" lazy="false" >
+            <column name="release_form_id" />
+        </many-to-one>
+        <!--  
+        <property name="releaseFormKey" type="int">
+            <column name="release_form_id" />
+        </property>
+        -->
+        <property name="indications" type="java.lang.String">
+            <column name="indications" />
+        </property>
+        <property name="contraindications" type="java.lang.String">
+            <column name="contraindications" />
+        </property>
+        <property name="applicationDuringPregnancyAndLactation" type="java.lang.String">
+            <column name="application_during_pregnancy_and_lactation" />
+        </property>
+        <property name="methodAdministrationAndDose" type="java.lang.String">
+            <column name="method_administration_and_dose" />
+        </property>
+        <property name="overdose" type="java.lang.String">
+            <column name="overdose" />
+        </property>
+        <property name="sideEffects" type="java.lang.String">
+            <column name="side_effects" />
+        </property>
+        <property name="termsConditionsStorage" type="java.lang.String">
+            <column name="terms_conditions_storage" />
+        </property>
+    </class>
+</hibernate-mapping>
